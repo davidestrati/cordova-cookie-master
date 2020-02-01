@@ -71,11 +71,22 @@
 
 - (void)clearCookies:(CDVInvokedUrlCommand*)command
 {
-    NSHTTPCookie *cookie;
-    NSHTTPCookieStorage *storage = [NSHTTPCookieStorage sharedHTTPCookieStorage];
-    for (cookie in [storage cookies]) {
-        [storage deleteCookie:cookie];
+    if (@available(iOS 11.0, *)) {
+        NSSet *websiteDataTypes = [NSSet setWithArray:@[WKWebsiteDataTypeCookies]];
+        NSDate *dateFrom = [NSDate dateWithTimeIntervalSince1970:0];
+        [[WKWebsiteDataStore defaultDataStore] removeDataOfTypes:websiteDataTypes
+                                                modifiedSince:dateFrom
+                                                completionHandler:^{
+                                                    NSLog(@"Cookies Cleared");
+                                                }];
+    } else {
+        NSHTTPCookie *cookie;
+           NSHTTPCookieStorage *storage = [NSHTTPCookieStorage sharedHTTPCookieStorage];
+           for (cookie in [storage cookies]) {
+               [storage deleteCookie:cookie];
+           }
     }
+
     [[NSUserDefaults standardUserDefaults] synchronize];
 
     CDVPluginResult* pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK];
