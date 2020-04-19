@@ -96,7 +96,7 @@
                                                         NSLog(@"Cookies Cleared");
                                                     }];
         } else {
-            pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR messageAsString:@"WKWebView requires iOS 9+ in order to clear the cookie"];
+            pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR messageAsString:@"WKWebView requires iOS 9+ in order to clear cookies"];
             [self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
             return;
         }
