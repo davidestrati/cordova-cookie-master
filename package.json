@@ -1,0 +1,41 @@
+{
+  "author": {
+    "name": "Kevin Kelchen"
+  },
+  "bugs": {
+    "url": "https://github.com/Cartegraph/cordova-cookie-master/issues"
+  },
+  "cordova": {
+    "id": "cordova-plugin-cartegraph-cookie-master",
+    "platforms": [
+      "ios",
+      "android"
+    ]
+  },
+  "description": "This plugin enables the management of cookies in WebViews on iOS and Android as those platforms restrict the use of \"document.cookie\".",
+  "engines": [
+    {
+      "name": "cordova",
+      "version": ">=3.0.0"
+    }
+  ],
+  "homepage": "https://github.com/Cartegraph/cordova-cookie-master#readme",
+  "keywords": [
+    "cordova",
+    "phonegap",
+    "cookie",
+    "cookies",
+    "cookie-manager",
+    "cookie-plugin",
+    "ecosystem:cordova",
+    "cordova-ios",
+    "cordova-android"
+  ],
+  "license": "MIT",
+  "name": "cordova-plugin-cartegraph-cookie-master",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Cartegraph/cordova-cookie-master.git"
+  },
+  "version": "1.4.1"
+}
