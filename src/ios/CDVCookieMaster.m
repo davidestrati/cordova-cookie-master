@@ -87,7 +87,7 @@
 - (void)clearCookies:(CDVInvokedUrlCommand*)command
 {
     if ([self.webView isKindOfClass:[WKWebView class]]) {
-        if (@available(iOS 11.0, *)) {
+        if (@available(iOS 9.0, *)) {
             NSSet *websiteDataTypes = [NSSet setWithArray:@[WKWebsiteDataTypeCookies]];
             NSDate *dateFrom = [NSDate dateWithTimeIntervalSince1970:0];
             [[WKWebsiteDataStore defaultDataStore] removeDataOfTypes:websiteDataTypes
@@ -96,7 +96,7 @@
                                                         NSLog(@"Cookies Cleared");
                                                     }];
         } else {
-            pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR messageAsString:@"WKWebView requires iOS 11+ in order to clear the cookie"];
+            pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR messageAsString:@"WKWebView requires iOS 9+ in order to clear the cookie"];
             [self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
             return;
         }
